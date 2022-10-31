@@ -1,0 +1,37 @@
+---
+title: Introdution to minsample2
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introdution to minsample2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(minsample2)
+```
+
+This is introduction to my awesome package. This package helps the user to determine the minimum sample size required to attain the pre-fixed precision level, i.e. some pre-fixed epsilon neighborhood, by minimizing the mean square distance between the sample mean and the sample size.
+Hence this package can be very useful for optimizing the survey cost. Because if the surveying authority already knows the minimum sample size required for the required precision level, then the surveyors need not to collect any extra data or conduct any extra survey and hence the survey cost can be reduced.   
+
+```{r}
+#example-1: minimum sample size required for epsilon = 0.5 and mean=0, sd=1(default)
+l_norm(1:10,0.5,0,1)
+
+#example-2: minimum sample sizes required for epsilons = 0.7 and 0.5 for the default mean and variance.
+l_norm(1:10,c(0.7,0.5))
+```
+
+It is to be noted that the user can change the mean and variance as per his requirements.
+
+```{r}
+#example-3: minimum sample size required for epsilon = 0.1 and mean=1, sd=3
+l_norm(1:10,0.5,1,3)
+```
